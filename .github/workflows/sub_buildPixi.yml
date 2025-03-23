@@ -128,7 +128,13 @@ jobs:
 
     - name: CMake Configure
       run: |
-        pixi run configure-release
+        if [[ "$RUNNER_OS" == "Linux" ]]; then
+          pixi run configure-ci-linux
+        elif [[ "$RUNNER_OS" == "macOS" ]]; then
+          pixi run configure-ci-macos
+        elif [[ "$RUNNER_OS" == "Windows" ]]; then
+          pixi run configure-ci-windows
+        fi
 
     - name: CMake Build
       run: |

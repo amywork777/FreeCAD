@@ -120,35 +120,38 @@ sed = "*"
 
 ## Qt 6 Configuration Presets
 [target.linux-64.tasks]
-configure = { cmd = [ "cmake", "-B", "build", "--preset", "conda-linux-debug", "-DFREECAD_QT_VERSION=6", "-DBUILD_REVERSEENGINEERING=OFF" ], depends-on = ["initialize"]}
-configure-debug = { cmd = [ "cmake", "-B", "build", "--preset", "conda-linux-debug", "-DFREECAD_QT_VERSION=6", "-DBUILD_REVERSEENGINEERING=OFF" ], depends-on = ["initialize"]}
-configure-release = { cmd = [ "cmake", "-B", "build", "--preset", "conda-linux-release", "-DFREECAD_QT_VERSION=6", "-DBUILD_REVERSEENGINEERING=OFF" ], depends-on = ["initialize"]}
+configure = { cmd = [ "cmake", "-B", "build", "--preset", "conda-linux-debug", "-DFREECAD_QT_VERSION=6", "-DBUILD_REVERSEENGINEERING=OFF" ], depends-on = ["initialize"], condition = "test -d .git" }
+configure-debug = { cmd = [ "cmake", "-B", "build", "--preset", "conda-linux-debug", "-DFREECAD_QT_VERSION=6", "-DBUILD_REVERSEENGINEERING=OFF" ], depends-on = ["initialize"], condition = "test -d .git" }
+configure-release = { cmd = [ "cmake", "-B", "build", "--preset", "conda-linux-release", "-DFREECAD_QT_VERSION=6", "-DBUILD_REVERSEENGINEERING=OFF" ], depends-on = ["initialize"], condition = "test -d .git" }
 
 [target.linux-aarch64.tasks]
-configure = { cmd = [ "cmake", "-B", "build", "--preset", "conda-linux-debug", "-DFREECAD_QT_VERSION=6", "-DBUILD_REVERSEENGINEERING=OFF" ], depends-on= ["initialize"]}
-configure-debug = { cmd = [ "cmake", "-B", "build", "--preset", "conda-linux-debug", "-DFREECAD_QT_VERSION=6", "-DBUILD_REVERSEENGINEERING=OFF" ], depends-on= ["initialize"]}
-configure-release = { cmd = [ "cmake", "-B", "build", "--preset", "conda-linux-release", "-DFREECAD_QT_VERSION=6", "-DBUILD_REVERSEENGINEERING=OFF" ], depends-on= ["initialize"]}
+configure = { cmd = [ "cmake", "-B", "build", "--preset", "conda-linux-debug", "-DFREECAD_QT_VERSION=6", "-DBUILD_REVERSEENGINEERING=OFF" ], depends-on = ["initialize"], condition = "test -d .git" }
+configure-debug = { cmd = [ "cmake", "-B", "build", "--preset", "conda-linux-debug", "-DFREECAD_QT_VERSION=6", "-DBUILD_REVERSEENGINEERING=OFF" ], depends-on = ["initialize"], condition = "test -d .git" }
+configure-release = { cmd = [ "cmake", "-B", "build", "--preset", "conda-linux-release", "-DFREECAD_QT_VERSION=6", "-DBUILD_REVERSEENGINEERING=OFF" ], depends-on = ["initialize"], condition = "test -d .git" }
 
 [target.osx-64.tasks]
-configure = { cmd = [ "cmake", "-B", "build", "--preset", "conda-macos-debug", "-DFREECAD_QT_VERSION=6", "-DBUILD_REVERSEENGINEERING=OFF" ], depends-on = ["initialize"]}
-configure-debug = { cmd = [ "cmake", "-B", "build", "--preset", "conda-macos-debug", "-DFREECAD_QT_VERSION=6", "-DBUILD_REVERSEENGINEERING=OFF" ], depends-on = ["initialize"]}
-configure-release = { cmd = [ "cmake", "-B", "build", "--preset", "conda-macos-release", "-DFREECAD_QT_VERSION=6", "-DBUILD_REVERSEENGINEERING=OFF" ], depends-on = ["initialize"]}
+configure = { cmd = [ "cmake", "-B", "build", "--preset", "conda-macos-debug", "-DFREECAD_QT_VERSION=6", "-DBUILD_REVERSEENGINEERING=OFF" ], depends-on = ["initialize"], condition = "test -d .git" }
+configure-debug = { cmd = [ "cmake", "-B", "build", "--preset", "conda-macos-debug", "-DFREECAD_QT_VERSION=6", "-DBUILD_REVERSEENGINEERING=OFF" ], depends-on = ["initialize"], condition = "test -d .git" }
+configure-release = { cmd = [ "cmake", "-B", "build", "--preset", "conda-macos-release", "-DFREECAD_QT_VERSION=6", "-DBUILD_REVERSEENGINEERING=OFF" ], depends-on = ["initialize"], condition = "test -d .git" }
 
 [target.osx-arm64.tasks]
-configure = { cmd = [ "cmake", "-B", "build", "--preset", "conda-macos-debug", "-DFREECAD_QT_VERSION=6", "-DBUILD_REVERSEENGINEERING=OFF" ], depends-on = ["initialize"]}
-configure-debug = { cmd = [ "cmake", "-B", "build", "--preset", "conda-macos-debug", "-DFREECAD_QT_VERSION=6", "-DBUILD_REVERSEENGINEERING=OFF" ], depends-on = ["initialize"]}
-configure-release = { cmd = [ "cmake", "-B", "build", "--preset", "conda-macos-release", "-DFREECAD_QT_VERSION=6", "-DBUILD_REVERSEENGINEERING=OFF" ], depends-on = ["initialize"]}
+configure = { cmd = [ "cmake", "-B", "build", "--preset", "conda-macos-debug", "-DFREECAD_QT_VERSION=6", "-DBUILD_REVERSEENGINEERING=OFF" ], depends-on = ["initialize"], condition = "test -d .git" }
+configure-debug = { cmd = [ "cmake", "-B", "build", "--preset", "conda-macos-debug", "-DFREECAD_QT_VERSION=6", "-DBUILD_REVERSEENGINEERING=OFF" ], depends-on = ["initialize"], condition = "test -d .git" }
+configure-release = { cmd = [ "cmake", "-B", "build", "--preset", "conda-macos-release", "-DFREECAD_QT_VERSION=6", "-DBUILD_REVERSEENGINEERING=OFF" ], depends-on = ["initialize"], condition = "test -d .git" }
 
 [target.win-64.tasks]
-configure = { cmd = [ "cmake", "-B", "build", "--preset", "conda-windows-debug", "-DFREECAD_QT_VERSION=6", "-DBUILD_REVERSEENGINEERING=OFF" ], depends-on = ["initialize"]}
-configure-debug = { cmd = [ "cmake", "-B", "build", "--preset", "conda-windows-debug", "-DFREECAD_QT_VERSION=6", "-DBUILD_REVERSEENGINEERING=OFF" ], depends-on = ["initialize"]}
-configure-release = { cmd = [ "cmake", "-B", "build", "--preset", "conda-windows-release", "-DFREECAD_QT_VERSION=6", "-DBUILD_REVERSEENGINEERING=OFF" ], depends-on = ["initialize"]}
-freecad = { cmd = [ ".pixi/envs/default/Library/bin/FreeCAD.exe" ], depends-on = ["install"]}
+configure = { cmd = [ "cmake", "-B", "build", "--preset", "conda-windows-debug", "-DFREECAD_QT_VERSION=6", "-DBUILD_REVERSEENGINEERING=OFF" ], depends-on = ["initialize"], condition = "test -d .git" }
+configure-debug = { cmd = [ "cmake", "-B", "build", "--preset", "conda-windows-debug", "-DFREECAD_QT_VERSION=6", "-DBUILD_REVERSEENGINEERING=OFF" ], depends-on = ["initialize"], condition = "test -d .git" }
+configure-release = { cmd = [ "cmake", "-B", "build", "--preset", "conda-windows-release", "-DFREECAD_QT_VERSION=6", "-DBUILD_REVERSEENGINEERING=OFF" ], depends-on = ["initialize"], condition = "test -d .git" }
+freecad = { cmd = [ ".pixi/envs/default/Library/bin/FreeCAD.exe" ], depends-on = ["install"] }
 
 ## Tasks
 [tasks]
-initialize = { cmd = ["git", "submodule", "update", "--init", "--recursive"]}
+initialize = { cmd = ["git", "submodule", "update", "--init", "--recursive"], condition = "test -d .git" }
 build = { cmd = [ "cmake", "--build", "build" ] }
 install = { cmd = [ "cmake", "--install", "build" ] }
 test = { cmd = [ "ctest", "--test-dir", "build" ] }
 freecad = "build/bin/FreeCAD"
+configure-ci-linux = { cmd = [ "cmake", "-B", "build", "--preset", "conda-linux-release", "-DFREECAD_QT_VERSION=6", "-DBUILD_REVERSEENGINEERING=OFF" ] }
+configure-ci-macos = { cmd = [ "cmake", "-B", "build", "--preset", "conda-macos-release", "-DFREECAD_QT_VERSION=6", "-DBUILD_REVERSEENGINEERING=OFF" ] }
+configure-ci-windows = { cmd = [ "cmake", "-B", "build", "--preset", "conda-windows-release", "-DFREECAD_QT_VERSION=6", "-DBUILD_REVERSEENGINEERING=OFF" ] }
