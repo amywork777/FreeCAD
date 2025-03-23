@@ -1,0 +1,30 @@
+target_sources(Tests_run PRIVATE
+        Axis.cpp
+        Base64.cpp
+        Bitmask.cpp
+        BoundBox.cpp
+        Builder3D.cpp
+        CoordinateSystem.cpp
+        DualNumber.cpp
+        DualQuaternion.cpp
+        Handle.cpp
+        Matrix.cpp
+        Parameter.cpp
+        Placement.cpp
+        Quantity.cpp
+        Reader.cpp
+        Rotation.cpp
+        ServiceProvider.cpp
+        Stream.cpp
+        TimeInfo.cpp
+        Tools.cpp
+        Tools2D.cpp
+        Tools3D.cpp
+        UniqueNameManager.cpp
+        Unit.cpp
+        Vector3D.cpp
+        ViewProj.cpp
+        Writer.cpp
+)
+
+setup_qt_test(InventorBuilder)
